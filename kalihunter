@@ -19,13 +19,13 @@ setchroot() {
 }
 unknownarch() {
 	printf "$red"
-	echo "[*] Arsitektur Tidak Diketahui :("
+	echo "[*] Maaf Device anda tidak mendukung :("
 	printf "$reset"
 	exit
 }
 
 checksysinfo() {
-	printf "$blue [*] Memeriksa arsitektur host ..."
+	printf "$blue [*] Memeriksa host device ..."
 	case $(getprop ro.product.cpu.abi) in
 		arm64-v8a)
 			SETARCH=arm64
@@ -66,7 +66,7 @@ seturl() {
 }
 
 gettarfile() {
-	printf "$blue [*] Getting tar file...$reset\n\n"
+	printf "$blue [*] Unduh file tar...$reset\n\n"
 	DESTINATION=$HOME/kali-${SETARCH}
 	seturl
     cd $HOME
@@ -87,7 +87,7 @@ getsha() {
 }
 
 checkintegrity() {
-	printf "\n${blue} [*] Checking integrity of file...\n"
+	printf "\n${blue} [*] Memeriksa integritas file...\n"
 	echo " [*] Script akan segera berakhir jika terjadi kegagalan integritas"
 	printf ' '
 	sha512sum -c kalifs-${SETARCH}-${chroot}.sha512sum || {
