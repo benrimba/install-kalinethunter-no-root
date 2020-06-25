@@ -19,13 +19,13 @@ setchroot() {
 }
 unknownarch() {
 	printf "$red"
-	echo "[*] Unknown Architecture :("
+	echo "[*] Arsitektur Tidak Diketahui :("
 	printf "$reset"
 	exit
 }
 
 checksysinfo() {
-	printf "$blue [*] Checking host architecture ..."
+	printf "$blue [*] Memeriksa arsitektur host ..."
 	case $(getprop ro.product.cpu.abi) in
 		arm64-v8a)
 			SETARCH=arm64
@@ -41,9 +41,9 @@ checksysinfo() {
 
 checkdeps() {
 	printf "${blue}\n"
-	echo " [*] Updating apt cache..."
+	echo " [*] Memperbarui cache yang tepat..."
 	apt update -y &> /dev/null
-	echo " [*] Checking for all required tools..."
+	echo " [*] Memeriksa semua alat yang diperlukan..."
 
 	for i in proot tar axel; do
 		if [ -e $PREFIX/bin/$i ]; then
@@ -52,7 +52,7 @@ checkdeps() {
 			echo "Installing ${i}..."
 			apt install -y $i || {
 				printf "$red"
-				echo " ERROR: check your internet connection or apt\n Exiting..."
+				echo " ERROR: periksa koneksi internet Anda atau apt\n Keluar..."
 				printf "$reset"
 				exit
 			}
@@ -74,7 +74,7 @@ gettarfile() {
     if [ ! -f "$rootfs" ]; then
         axel ${EXTRAARGS} --alternate "$URL"
     else
-        printf "${red}[!] continuing with already downloaded image, if this image is corrupted or half downloaded then delete it manually to download a fresh image.$reset\n\n"
+        printf "${red}[!] Melanjutkan dengan gambar yang sudah diunduh, jika gambar ini rusak atau setengah diunduh maka hapus secara manual untuk mengunduh gambar yang baru.$reset\n\n"
     fi
 }
 
@@ -88,10 +88,10 @@ getsha() {
 
 checkintegrity() {
 	printf "\n${blue} [*] Checking integrity of file...\n"
-	echo " [*] The script will immediately terminate in case of integrity failure"
+	echo " [*] Script akan segera berakhir jika terjadi kegagalan integritas"
 	printf ' '
 	sha512sum -c kalifs-${SETARCH}-${chroot}.sha512sum || {
-		printf "$red Sorry :( to say your downloaded linux file was corrupted or half downloaded, but don't worry, just rerun my script\n${reset}"
+		printf "$red Maaf :( untuk membaca file linux yang Anda unduh rusak atau setengah diunduh, tetapi jangan khawatir, jalankan kembali skrip saya\n${reset}"
 		exit 1
 	}
 }
@@ -159,7 +159,7 @@ if [[ ! -z $1 ]]; then
     fi
 fi
 
-printf "\n${yellow} You are going to install Kali Nethunter In Termux Without Root ;) Cool\n\n"
+printf "\n${yellow} Anda akan menginstal Kali Nethunter Dalam Termux Tanpa Root;) Kerenkan \n\n"
 
 pre_cleanup
 checksysinfo
@@ -172,7 +172,7 @@ extract
 createloginfile
 post_cleanup
 
-printf "$blue [*] Configuring Kali For You ..."
+printf "$blue [*] Mengkonfigurasi Kali Untuk Anda ..."
 
 # Utility function for resolv.conf
 resolvconf() {
@@ -194,11 +194,9 @@ finalwork() {
 finalwork
 
 printline
-printf "\n${yellow} Now you can enjoy Kali Nethuter in your Termux :)\n Don't forget to like my hard work for termux and many other things\n"
+printf "\n${yellow} Sekarang Anda dapat menikmati Kali Nethuter di Termux Anda:) \ n Jangan lupa untuk Like dan subscribe channel saya\n"
 printline
 printline
-printf "\n${blue} [*] My official email:${yellow}		lkpandey950@gmail.com\n"
-printf "$blue [*] My website:${yellow}		https://hax4us.com\n"
-printf "$blue [*] My YouTube channel:${yellow}	https://youtube.com/hax4us\n"
+printf "$blue [*] Channel saya:${yellow}	https://youtube.com/rudiedukasi\n"
 printline
 printf "$reset"
