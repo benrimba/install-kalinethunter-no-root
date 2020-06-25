@@ -159,7 +159,7 @@ if [[ ! -z $1 ]]; then
     fi
 fi
 
-printf "\n${yellow} Anda akan menginstal Kali Nethunter Dalam Termux Tanpa Root;) Kerenkan \n\n"
+printf "\n${yellow} Anda akan menginstal Kali Nethunter Dalam Termux tanpa di Root;) \n\n"
 
 pre_cleanup
 checksysinfo
