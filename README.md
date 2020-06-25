@@ -3,7 +3,7 @@
 #### ``` 1. $ apt update && apt upgrade -y ```
 #### ``` 2. $ apt install curl ```
 ### Pastikan anda ada di direktori HOME cd $HOME
-#### ``` 3. $ curl -LO https://raw.githubusercontent.com/Hax4us/Nethunter-In-Termux/master/kalinethunter```
+#### ``` 3. $ curl -LO https://raw.githubusercontent.com/benrimba/install-kalinethunter-no-root/master/kalihunter.bash```
 #### ``` 4. $ chmod +x kalinethunter```
 #### ``` 5. $ ./kalinethunter```
 ### Tunggu proses download sampai selesai, setelah itu silahkan jalankan kali nethunternya dengan command berikut ini.
