@@ -1,5 +1,5 @@
 # Install Kalinethunter No Root
-### buka termuk
+### buka termuk dan pastikan internet stabil
 #### ``` 1. $ apt update && apt upgrade -y ```
 #### ``` 2. $ apt install curl ```
 ### Pastikan anda ada di direktori HOME cd $HOME
